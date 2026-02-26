@@ -8,7 +8,7 @@ def main():
         print("Ошибка благодаря валидации")
 
     order2 = Order("Matvey", "mak@gmail.com",1234567, 5000, "paid", 10000, 1234)
-    order3 = Order("Nikita", "niktururu@mail.ru", 7654321, 3000, "new", 5000, 5678)
+    order3 = Order("Nikita", "nik@mail.ru", 7654321, 3000, "new", 5000, 5678)
 
     print(f"\n Вывод __str__")
     print(str(order2))
