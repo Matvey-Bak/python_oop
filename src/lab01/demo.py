@@ -3,12 +3,39 @@ from model import Order
 def main():
     print("\n Validation")
     try:
-        order1 = Order("Tom", "not-email", 123, -100, "invalid", -500, 12)
+        order1 = Order("Tom", "not-email", 123, -100, "invalid",  12)
     except (ValueError, TypeError) as e:
         print("Ошибка благодаря валидации")
 
-    order2 = Order("Matvey", "mak@gmail.com",1234567, 5000, "paid", 10000, 1234)
-    order3 = Order("Nikita", "nikbaktutu@mail.ru", 7654321, 3000, "new", 5000, 5678)
+   
+
+    print( "\n" + "=" * 30)
+
+    order4 = Order("Parsifal", "anna@mail.ru", 1534466344, 4500, "new", 4321)
+    
+    print("\n Начальное состояние:")
+    print(order4)
+    print(f"Можно оплатить: {order4.can_be_paid()}")
+    
+    print("\n Оплата заказа:")
+    result = order4.pay_order(4321)
+    print(f"Результат: {result}")
+    print(f"Новый статус: {order4.get_status}")
+    print(f"Общая выручка: {Order.total_earnings}")
+    
+    print("\n Отправка заказа:")
+    result = order4.ship_order()
+    print(f"Результат: {result}")
+    print(f"Новый статус: {order4.get_status}")
+    
+    print("\n Попытка отменить отправленный заказ:")
+    result = order4.cancel_order()
+    print(f"Результат: {result}")
+    
+    print("\n" + "=" * 30)
+
+    order2 = Order("Matvey", "mak@gmail.com",1234567, 5000, "paid",  1234)
+    order3 = Order("Nikita", "niktututu@mail.ru", 7654321, 3000, "new",  5678)
 
     print(f"\n Вывод __str__")
     print(str(order2))
@@ -21,7 +48,6 @@ def main():
 
     print("\n Геттеры:")
     print(f"Статус: {order2.get_status}")
-    print(f"Баланс: {order2.get_balance}")
     print(f"Стоимость заказа: {order2.get_amount}")
     print(f"Email: {order2.gs_email}")
 
@@ -35,7 +61,8 @@ def main():
     print(f"Можно оплатить: {order2.can_be_paid()}")
     print(f"Можно отправить: {order2.can_be_shipped()}")
 
-    print("\n Изменение состояния")
+    
+
     while True:
         print(20 * "=" + "\n")
         print("Доступные команды:")

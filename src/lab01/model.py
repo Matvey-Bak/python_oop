@@ -4,7 +4,6 @@ from validations import (
     _validate_id_order,
     _validate_order_amount,
     _validate_status,
-    _validate_balance,
     _validate_pin
 )
 
@@ -12,7 +11,7 @@ class Order:
     total_earnings = 0
     total_orders = 0
     
-    def __init__(self, name, email, id_order, order_amount, status, balance, pin):
+    def __init__(self, name, email, id_order, order_amount, status, pin):
         result_name = _validate_name(name)
         if result_name is not True:
             raise ValueError(result_name)
@@ -38,11 +37,6 @@ class Order:
             raise ValueError(result_status)
         self._status = status
 
-        result_balance =  _validate_balance(balance)
-        if result_balance is not True:
-            raise ValueError(result_balance)
-        self._balance = balance
-
         result_pin =  _validate_pin(pin)
         if result_pin is not True:
             raise ValueError(result_pin)
@@ -54,9 +48,6 @@ class Order:
     def get_status(self):
         return self._status
     
-    @property
-    def get_balance(self):
-        return self._balance
     
     @property
     def get_amount(self):
@@ -79,7 +70,7 @@ class Order:
         return self._status in ["new", "paid"]
     
     def can_be_paid(self):
-        return self._status == "new" and self._balance >= self._order_amount
+        return self._status == "new"
     
     def can_be_shipped(self):
         return self._status == "paid"
@@ -108,7 +99,6 @@ class Order:
             return f"Неверный пин-код"
                            
         self._status = "paid"
-        self._balance -= self._order_amount
         Order.total_earnings += self._order_amount
         return f"Заказ успешно оплачен"
     

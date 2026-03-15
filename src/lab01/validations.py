@@ -51,12 +51,6 @@ def _validate_status(obj):
     
     return True
 
-def _validate_balance(obj):
-    if not isinstance(obj, (int, float)):
-        return f"Ошибка: Баланс должен быть числом"
-    if obj < 0:
-        return f"Ошибка: Баланс не может быть отрицательным"
-    return True
     
 def _validate_pin(obj):
     if not isinstance(obj, int):
