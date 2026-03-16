@@ -45,20 +45,20 @@ class Order:
         Order.total_orders += 1
 
     @property
-    def get_status(self):
+    def status(self):
         return self._status
     
     
     @property
-    def get_amount(self):
+    def amount(self):
         return self._order_amount
     
     @property
-    def gs_email(self): 
+    def email(self): 
         return self._email
     
-    @gs_email.setter
-    def gs_email(self, new_email):
+    @email.setter
+    def email(self, new_email):
         if _validate_email(new_email):
             self._email = new_email
 

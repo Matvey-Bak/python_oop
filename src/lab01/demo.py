@@ -20,13 +20,13 @@ def main():
     print("\n Оплата заказа:")
     result = order4.pay_order(4321)
     print(f"Результат: {result}")
-    print(f"Новый статус: {order4.get_status}")
+    print(f"Новый статус: {order4.status}")
     print(f"Общая выручка: {Order.total_earnings}")
     
     print("\n Отправка заказа:")
     result = order4.ship_order()
     print(f"Результат: {result}")
-    print(f"Новый статус: {order4.get_status}")
+    print(f"Новый статус: {order4.status}")
     
     print("\n Попытка отменить отправленный заказ:")
     result = order4.cancel_order()
@@ -47,14 +47,14 @@ def main():
     print(order2 == order3)
 
     print("\n Геттеры:")
-    print(f"Статус: {order2.get_status}")
-    print(f"Стоимость заказа: {order2.get_amount}")
-    print(f"Email: {order2.gs_email}")
+    print(f"Статус: {order2.status}")
+    print(f"Стоимость заказа: {order2.amount}")
+    print(f"Email: {order2.email}")
 
     print("\n Сеттер:")
-    print(f"Старый email {order2.gs_email}")
-    order2.gs_email = "makbak@gmail.com"
-    print(f"Новый email {order2.gs_email}")
+    print(f"Старый email {order2.email}")
+    order2.email = "makbak@gmail.com"
+    print(f"Новый email {order2.email}")
 
     print("\n Проверка состояния")
     print(f"Можно отменить: {order2.can_be_cancelled()}")
