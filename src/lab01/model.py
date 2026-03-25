@@ -1,4 +1,4 @@
-from validations import (
+from lab01.validations import (
     _validate_name,
     _validate_email,
     _validate_id_order,
