@@ -37,7 +37,7 @@ class BucketOrder:
     def __getitem__(self, index):
         return self._items[index]
     
-    def remove_at(self, index):
+    def remove_at_index(self, index):
         if 0 <= index < len(self._items):
             removed_item = self._items.pop(index)
             return removed_item
