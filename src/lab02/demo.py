@@ -1,24 +1,24 @@
 from lab01.model import Order
-from lab02.model import BucketOrder
+from lab02.collection import BucketOrder
 
 class Cat:
     def __init__(self, name, mail, id, amount, stat, pin):
         self.name = name
 
 
-order1 = Order("Car_Audi", "hghgghgh@fhfhfh.ru", 123456789, 200, "new", 1234)
-#order2 = Cat("Ship_Any", "robot@jfjfjfj.com", 987654321, 300, "paid", 9876)
-order3 = Order("Plane_Emirates", "plane@vzhuh.com", 456123789, 300, "new", 4567)
-order4 = Order("Mountain_Bike", "cycle@trrrrrrr.com", 789123456, 50, "paid", 1928)
-order5 = Order("Mountain_cycle", "cycle@trrrrrrr.com", 789123456, 500, "new", 1928)
+# order1 = Order("Car_Audi", "hghgghgh@fhfhfh.ru", 123456789, 200, "new", 1234)
+# order2 = Cat("Ship_Any", "robot@jfjfjfj.com", 987654321, 300, "paid", 9876)
+# order3 = Order("Plane_Emirates", "plane@vzhuh.com", 456123789, 300, "new", 4567)
+# order4 = Order("Mountain_Bike", "cycle@trrrrrrr.com", 789123456, 50, "paid", 1928)
+# order5 = Order("Mountain_cycle", "cycle@trrrrrrr.com", 789123456, 500, "new", 1928)
 
 
-bucket = BucketOrder()
+# bucket = BucketOrder()
 
-
-bucket.add(order1)
-bucket.add(order3)
-bucket.add(order4)
+# bucket.add(order2)
+# bucket.add(order1)
+# bucket.add(order3)
+# bucket.add(order4)
 
 
 # print("1. Выводим заказ по индексу \n ")
@@ -78,10 +78,11 @@ bucket.add(order4)
 # print(bucket1.get_by_amount(100, 600))
 
 
-print("Dunder methods: ")
-print("__len__")
-print(len(bucket))
-print("\n __getitem__")
-print(bucket[0])
-print("\n __str__")
-print(bucket)
+# print("Dunder methods: ")
+# print("__len__")
+# print(len(bucket))
+# print("\n __getitem__")
+# print(bucket[0])
+# print("\n __str__")
+# print(bucket)
+order2 = Order("nil", "mak@gmail.com",1234567, 5000, "paid",  1234)
