@@ -7,10 +7,20 @@ from lab01.validations import (
     _validate_pin
 )
 
+from abc import abstractmethod, ABC
 
-class Order:
+class Order(ABC):
     total_earnings = 0
     total_orders = 0
+
+    @abstractmethod
+    def calculate_total_cost(self):
+        "Общая стоимость заказа"
+        pass
+
+    @abstractmethod
+    def get_delivery_deadline(self):
+        pass
     
     def __init__(self, name, email, id_order, order_amount, status, pin):
         result_name = _validate_name(name)

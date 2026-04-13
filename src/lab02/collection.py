@@ -5,8 +5,9 @@ class BucketOrder:
         self._items = []
 
     def add(self, item):
-        if not isinstance(item, Order):
-            raise TypeError("Объект не является классом Order")
+        # if not isinstance(item, Order):
+        #     raise TypeError("Объект не является классом Order")
+
         if item.id_order in self._items:
             return f"Нельзя добавиить заказ котрый уже есть в корзине"
         
@@ -20,13 +21,26 @@ class BucketOrder:
 
     def get_all(self):
         for item in self._items:
-            print(item.name)
+            return self._items.copy()
     
     def find_by_id(self, n_id):
         for item in self._items:
             if item.id_order == n_id:
                 return item
         print(f"Заказ с ID:{n_id} не найден")
+
+    def get_by_type(self, class_type):
+        return [item for item in self._items if isinstance(item, class_type)]
+    
+    
+    # def get_only_physical(self):
+    #     from lab03.models import PhysicalOrder
+    #     return self.get_by_type(PhysicalOrder)
+    
+    # def get_only_digital(self):
+    #     from lab03.models import DigitalOrder
+    #     return self.get_by_type(DigitalOrder)
+    
 
     def __len__(self):
         return len(self._items)
