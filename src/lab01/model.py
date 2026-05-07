@@ -53,6 +53,13 @@ class Order:
     def amount(self):
         return self._order_amount
     
+    @amount.setter 
+    def amount(self, value):
+        """Сеттер для изменения суммы заказа"""
+        if value < 0:
+            raise ValueError("Сумма заказа не может быть отрицательной")
+        self._order_amount = value
+    
     @property
     def email(self): 
         return self._email
