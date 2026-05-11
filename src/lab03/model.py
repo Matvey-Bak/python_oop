@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 class PhysicalOrder(Order):
     def __init__(self, name, email, id_order, order_amount, status, pin, delivery_address, delivery_weight):
         super().__init__(name, email, id_order, order_amount, status, pin)
-        self.delivery_address = delivery_address
-        self.delivery_weight = delivery_weight
+        self.address = delivery_address
+        self.weight = delivery_weight
 
     def calculate_shipping(self):
         if self.delivery_weight > 20:
@@ -32,7 +32,14 @@ class PhysicalOrder(Order):
             return "Будет отправлен в течение 24 часов"
         elif self.status == "new":
             return "Оплатите заказ для расчета срока доставки"
+        
         return "Заказ отменен"
+    
+    def display(self) -> str:  
+        return f"Физический заказ #{self.id_order}: {self.name}, Адрес: {self.address}, Вес: {self.weight}кг"
+    
+    def score(self) -> float: 
+        return self.weight * 10 + self.amount / 100
     
     def __str__(self):
         parent_str = super().__str__() 
@@ -84,7 +91,12 @@ class DigitalOrder(Order):
         elif self.status == "new":
             return "После оплаты ссылка будет доступна мгновенно"
         return "Заказ отменен"
-
+    
+    def display(self) -> str: 
+        return f"Цифровой заказ #{self.id_order}: {self.name}, Ссылка: {self.download_link}"
+    
+    def score(self) -> float: 
+        return self.amount / 50
 
     def __str__(self):
         parent_str = super().__str__() 

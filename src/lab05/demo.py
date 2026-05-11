@@ -157,6 +157,7 @@ def demo_map_and_factories():
     print(f"\n   Результат:")
     print(filtered)
     
+
     print("\n Фабрика функций: make_discount_applier(10%)")
     apply_10_discount = make_discount_applier(10)
     
