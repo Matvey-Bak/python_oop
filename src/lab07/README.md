@@ -118,6 +118,10 @@
 
 ![alt text](../../images/lab07/script4.2.png)
 
+## Asciinema
+
+[![asciinema](https://asciinema.org/a/phpbSee0IMDki1OO.svg)](https://asciinema.org/a/phpbSee0IMDki1OO)
+
 ## 5. Вывод
 
 В ходе выполнения лабораторной работы были изучены и применены:
