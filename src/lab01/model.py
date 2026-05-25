@@ -117,6 +117,33 @@ class Order:
         self._status = "shipped"
         return f"Заказ отправлен"
     
+
+    def to_dict(self) -> dict:
+        """Преобразует заказ в словарь для сохранения в JSON."""
+        return {
+            'name': self.name,
+            'email': self._email,
+            'id_order': self.id_order,
+            'order_amount': self._order_amount,
+            'status': self._status,
+            'pin': self._pin,
+            'balance': self._balance
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> 'Order':
+        """Создает заказ из словаря."""
+        order = cls(
+            name=data['name'],
+            email=data['email'],
+            id_order=data['id_order'],
+            order_amount=data['order_amount'],
+            status=data['status'],
+            pin=data['pin']
+        )
+        order._balance = data.get('balance', 0.0)
+        return order
+    
     def __str__(self) -> str:
         return (f"Заказ №: {self.id_order}\n"
                 f"Клиент: {self.name} \n"

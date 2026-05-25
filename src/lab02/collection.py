@@ -1,4 +1,5 @@
 from lab01.model import Order
+from typing import Callable, Any
 
 class BucketOrder:
     def __init__(self):
@@ -20,8 +21,7 @@ class BucketOrder:
         print(f"Заказ {item.name} успешно удален из корзины")
 
     def get_all(self):
-        for item in self._items:
-            return self._items.copy()
+        return self._items.copy()
     
     def find_by_id(self, n_id):
         for item in self._items:
@@ -40,7 +40,26 @@ class BucketOrder:
     # def get_only_digital(self):
     #     from lab03.models import DigitalOrder
     #     return self.get_by_type(DigitalOrder)
+
+
+    def copy(self) -> 'BucketOrder':
+        new_bucket = BucketOrder()
+        new_bucket._items = self._items.copy()  
+        return new_bucket
     
+
+    def sort_by(self, key_func: Callable[[Order], Any]) -> 'BucketOrder':
+        """
+        Сортировка коллекции по функции-стратегии.
+        
+        Args:
+            key_func: Функция, извлекающая значение для сравнения
+            
+        Returns:
+            BucketOrder: Возвращает self для цепочек операций
+        """
+        self._items.sort(key=key_func)
+        return self
 
     def __len__(self):
         return len(self._items)
